@@ -85,11 +85,23 @@ npm run dev
 
 The server will start on `http://localhost:3000` by default.
 
+## 🌐 Live Deployment
+
+The application is deployed and live at:
+
+```
+https://git-hub-profile-analyzer-api-phi.vercel.app
+```
+
+You can use this link directly to test the API without setting up a local instance.
+
 ## 📡 API Endpoints
 
 ### `POST /api/profiles/analyze`
 
 Analyze a GitHub username and save profile insights.
+
+**Base URL:** `https://git-hub-profile-analyzer-api-phi.vercel.app`
 
 Request body:
 
@@ -97,6 +109,22 @@ Request body:
 {
   "username": "octocat"
 }
+```
+
+**Example with cURL (Live):**
+
+```bash
+curl -X POST https://git-hub-profile-analyzer-api-phi.vercel.app/api/profiles/analyze \
+  -H "Content-Type: application/json" \
+  -d '{"username": "octocat"}'
+```
+
+**Example with cURL (Local):**
+
+```bash
+curl -X POST http://localhost:3000/api/profiles/analyze \
+  -H "Content-Type: application/json" \
+  -d '{"username": "octocat"}'
 ```
 
 Response example:
@@ -120,6 +148,18 @@ Response example:
 
 Returns a list of all analyzed GitHub profiles.
 
+**Example with cURL (Live):**
+
+```bash
+curl https://git-hub-profile-analyzer-api-phi.vercel.app/api/profiles
+```
+
+**Example with cURL (Local):**
+
+```bash
+curl http://localhost:3000/api/profiles
+```
+
 Response example:
 
 ```json
@@ -140,10 +180,16 @@ Response example:
 
 Fetch a stored profile analysis by username.
 
-Example:
+**Example with cURL (Live):**
 
-```http
-GET /api/profiles/octocat
+```bash
+curl https://git-hub-profile-analyzer-api-phi.vercel.app/api/profiles/octocat
+```
+
+**Example with cURL (Local):**
+
+```bash
+curl http://localhost:3000/api/profiles/octocat
 ```
 
 Response example:
